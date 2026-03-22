@@ -5,8 +5,20 @@ description = "DDOS detection neural network"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "ipykernel>=7.2.0",
+    "matplotlib>=3.10.8",
     "numpy>=2.4.3",
     "pandas>=3.0.1",
     "scikit-learn>=1.8.0",
+    "seaborn>=0.13.2",
     "torch>=2.10.0",
+    "tqdm>=4.67.3",
 ]
+
+[[tool.uv.index]]
+name = "pytorch-gpu"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-gpu" }
