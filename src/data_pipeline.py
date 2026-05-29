@@ -73,7 +73,7 @@ def build_balanced_multiclass_dataset(directory_path: str, global_max_per_class:
     processed_dfs = []
 
     for filename in sorted(os.listdir(directory_path)):
-        if filename.endswith(".csv"):
+        if filename.endswith(".csv") and filename != "master_clean_dataset.csv":
             file_path = os.path.join(directory_path, filename)
             print(f"Loading: {filename}...")
 
@@ -146,8 +146,8 @@ def get_dataloaders(data_dir: str, is_binary: bool = False, batch_size: int = 32
     Main function to retrieve dataloaders for the project.
     If 'is_binary' is True, all attack classes will be grouped to 1, and BENIGN to 0.
     """
-    master_dataset_path = "data/master_clean_dataset.csv"
-    mapping_path = "data/class_mapping.json"
+    master_dataset_path = "../data/master_clean_dataset.csv"
+    mapping_path = "../data/class_mapping.json"
 
     # Cache handling
     if os.path.exists(master_dataset_path) and os.path.exists(mapping_path):
